@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>add Questions</title>
+  </head>
+  <body>
+    <form action="../main.html" method="post">
+      <label for="question">question</label>
+      <input type="text" name="question" placeholder="Enter The question" />
+      <label for="options">options</label>
+      <input
+        type="text"
+        name="options"
+        placeholder="Enter The options if you have a lot of options pleas add / between them (option1/option2/..)"
+      />
+      <label for="hints">hints</label>
+      <input
+        type="text"
+        name="hints"
+        placeholder="Enter The hints if you have a lot of hints pleas add / between them (hints/hints/..)"
+      />
+      <label for="correct">correct answer</label>
+      <input
+        type="text"
+        name="correct"
+        placeholder="Enter The correct answer "
+      />
+
+      <select name="catigory" id="catigory">
+        <option value="math">Math</option>
+        <option value="frensh">Frensh</option>
+        <option value="arabe">Arab</option>
+        <option value="islamic">Islamic</option>
+        <option value="history">History</option>
+        <option value="english">English</option>
+      </select>
+      <input class="btn" type="submit" value="submit" />
+    </form>
+  </body>
+</html>

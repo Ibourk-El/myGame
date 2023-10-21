@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:sans-serif ;
+  border-radius: 10px;
+}
+
+form {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 550px;
+  height: 100vh;
+}
+input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background-color: #eee;
+}
+label{
+    align-self: start;
+    margin-left: 10px;
+    font-size: 18px;
+    color:#aaa
+}
+select{
+    padding: 10px;
+    background-color: #eee;
+    border: none;
+}
+.btn{
+    border: none;
+    
+}
