@@ -14,11 +14,12 @@ body {
   align-items: center;
   justify-content: space-around;
   /* background-color: black; */
-  background-image: linear-gradient(to top ,#00ccff  ,rgb(0, 102, 170) ,#00ccff);
+  background-image: linear-gradient(to top, #00ccff, rgb(0, 102, 170), #00ccff);
 }
 .bg {
   padding: 10px;
   height: 100%;
+  position: relative;
 }
 .main {
   width: 400px;
@@ -33,7 +34,9 @@ body {
 .main .infos {
   width: 100%;
 }
-.main .infos .info {
+.main .infos .info,
+.result-box .wrong-answers li,
+.result-box .result {
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #808080;
@@ -82,14 +85,57 @@ body {
   background-color: #eee;
   width: 40%;
 }
-.removeBtn {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
+.result-box {
+  width: 400px;
+  height: 0px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #eee;
+  z-index: 12;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 0 10px;
+  transition: height 1s;
+}
+.result-box .wrong-answers li {
+  display: block;
+  line-height: 1.3em;
+}
+
+.result-box .wrong-answers li span {
+  color: green;
+}
+
+.result-box .result {
+  display: block;
+  font-weight: 500;
+  padding: 10px;
+  background-color: #007700;
+  color: white;
+}
+
+.result-box .btns {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+.result-box .btns button {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid red;
+}
+.result-box .btns button:hover {
   background-color: red;
   color: white;
-  transition: all 0.3s;
 }
-.removeBtn:hover {
-  padding: 7px 13px;
+
+@media (max-width: 410px) {
+  .main {
+    width: 99%;
+  }
 }

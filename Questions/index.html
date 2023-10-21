@@ -7,8 +7,8 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="bg">
-      <div class="main">
+    <section class="bg">
+      <main class="main">
         <p class="quetion">what is the most football player win Golden Ball</p>
         <ul class="infos">
           <li class="info">info 1</li>
@@ -18,21 +18,34 @@
           <li class="info hint">click to open a hint</li>
         </ul>
         <p class="answer" ondragover="dragover(event)" ondrop="drop(event)">
-          Drop Letters Of The Word Here
+          Drop The Answer Here
         </p>
         <div class="letters-box">
-          <span class="choise" draggable="true" ondragstart="dragStart(event)"
+          <span class="choice" draggable="true" ondragstart="dragStart(event)"
             >chose</span
-          ><span class="choise" draggable="true" ondragstart="dragStart(event)"
+          ><span class="choice" draggable="true" ondragstart="dragStart(event)"
             >Carbon Dioxide</span
-          ><span class="choise" draggable="true" ondragstart="dragStart(event)"
+          ><span class="choice" draggable="true" ondragstart="dragStart(event)"
             >chose</span
-          ><span class="choise" draggable="true" ondragstart="dragStart(event)"
+          ><span class="choice" draggable="true" ondragstart="dragStart(event)"
             >chose</span
           >
         </div>
+      </main>
+      <div class="result-box">
+        <p class="result">
+          you  Answered  <span class="answer-num"></span> Out Of
+          <span class="all-answer-num"></span>
+        </p>
+        <ul class="wrong-answers">
+          
+        </ul>
+        <div class="btns">
+          <button class="restart-btn">Restart</button>
+          <button class="menu-btn">Menu</button>
+        </div>
       </div>
-    </div>
+    </section>
     <script src="index.js"></script>
   </body>
 </html>

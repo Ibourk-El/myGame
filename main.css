@@ -1,41 +1,49 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
-.catigories{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-    flex-wrap: wrap;
-
-
+.catigories {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+  flex-wrap: wrap;
+  width: 100%;
 }
-.catigories main{
-    width: 200px;
-    height: 200px;
-    padding: 10px;
-    border-radius: 10px;
-    transition: all 0.5s;
-    box-shadow: 10px 10px 10px 3px #eee;
+.catigories main {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  box-shadow: 10px 10px 10px 3px #aaa;
+  background-color: #eee;
+  margin-bottom: 10px;
 }
-.catigories main .img-box{
-    width: 90%;
-    overflow: hidden;
+.catigories main .img-box {
+  width: 90%;
+  overflow: hidden;
+  margin: auto;
 }
 .catigories main img {
-    width: 100%;
-    height: 120px;
-    transition: transform 0.3s;
+  width: 100%;
+  height: 120px;
+  transition: transform 0.3s;
 }
-.catigories main h2{
-    text-align: center;
-    margin-top: 10px;
+.catigories main h2 {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .catigories main:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 360px) {
+  .catigories main {
+    width: 90%;
+    height: 200px;
+  }
 }
