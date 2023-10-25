@@ -359,6 +359,7 @@ function setQuestions(q, h, ch) {
   let hints = document.querySelectorAll("li");
   const choices = document.querySelectorAll(".choice");
   question.innerHTML = q;
+  numOfHints = 0;
   for (let i = 0; i < h.length; i++) {
     hints[i].innerHTML = h[i];
     hints[i].style.display = "none";
@@ -455,7 +456,7 @@ restartBtn.addEventListener("click", () => {
   questionsIndex = 0;
   resultBox.style.height = "0px";
   wrongAnswers.innerHTML = "";
-  score=0
+  score = 0;
   reset(word);
 });
 
