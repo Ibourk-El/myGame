@@ -29,7 +29,7 @@ let questions = [
     {
       question: "كم عدد أركان الإيمان في الإسلام؟",
       options: ["4", "5", "6", "7"],
-      correctAnswer: "6",
+      correctAnswer: "5",
       hints: [
         "أركان الإيمان هي الأمور التي يجب على المسلم أن يؤمن بها بقلبه.",
         "من أمثلة أركان الإيمان: الإيمان بالله والملائكة والكتب والأنبياء واليوم الآخر والقدر.",
@@ -343,13 +343,11 @@ const resultBox = document.querySelector(".result-box");
 const wrongAnswers = document.querySelector(".wrong-answers");
 const restartBtn = document.querySelector(".restart-btn");
 const menuBtn = document.querySelector(".menu-btn");
-const color = "1234567890abcdef";
 let questionsIndex = 0;
 let catigoryIndex = parseInt(localStorage.getItem("index"));
 let hintIndex = 0;
 let stopHintIndex = false;
 let numOfHints = 0;
-let colorsArrBg = [];
 let wrongAnswersArr = [];
 let score = 0;
 
@@ -361,8 +359,6 @@ function setQuestions(q, h, ch) {
   question.innerHTML = q;
   numOfHints = 0;
   for (let i = 0; i < h.length; i++) {
-    hints[i].innerHTML = h[i];
-    hints[i].style.display = "none";
     numOfHints++;
   }
   for (let i = 0; i < ch.length; i++) {
@@ -431,23 +427,6 @@ function passToAotherQ(e) {
 }
 // event
 // add hint
-hintBtn.addEventListener("click", () => {
-  // allHint[hintIndex].style.display = "block";
-  if (numOfHints > 0) {
-    numOfHints--;
-    allHint[numOfHints].style.display = "block";
-    if (numOfHints === 0) {
-      hintBtn.innerHTML = "show the answer";
-    }
-  } else {
-    word.innerHTML = questions[catigoryIndex][questionsIndex].correctAnswer;
-    word.style.color = "#121";
-    passToAotherQ(word);
-    hintBtn.innerHTML = "click to open a hint";
-    hintIndex = 0;
-    stopHintIndex = false;
-  }
-});
 
 menuBtn.addEventListener("click", () => {
   location.href = "./../main.html";
@@ -460,36 +439,9 @@ restartBtn.addEventListener("click", () => {
   reset(word);
 });
 
-//
-
-// make colors
-function colorForBg() {
-  let c = "#";
-  for (let i = 0; i < 6; i++) {
-    let index = Math.floor(Math.random() * 16);
-    c += color[index];
-  }
-  return c;
-}
-
-for (let i = 0; i < 5; i++) {
-  colorsArrBg.push(colorForBg());
-}
-//
-
+//add questions
 setQuestions(
   questions[catigoryIndex][questionsIndex].question,
   questions[catigoryIndex][questionsIndex].hints,
   questions[catigoryIndex][questionsIndex].options
 );
-// change color of  the bg
-setInterval(() => {
-  bg.style.backgroundImage = `linear-gradient(to top,
-                            ${colorsArrBg[0]} 0% 20% ,
-                            ${colorsArrBg[1]} 20% 40% ,
-                            ${colorsArrBg[2]} 40% 60% ,
-                            ${colorsArrBg[3]} 60% 80% ,
-                            ${colorsArrBg[4]} 80% 100%)`;
-  colorsArrBg.unshift(colorForBg());
-  colorsArrBg.pop();
-}, 1000);
