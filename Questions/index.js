@@ -352,15 +352,11 @@ let wrongAnswersArr = [];
 let score = 0;
 
 //puth questions to mian game
-function setQuestions(q, h, ch) {
+function setQuestions(q, ch) {
   let question = document.querySelector(".quetion");
   let hints = document.querySelectorAll("li");
   const choices = document.querySelectorAll(".choice");
   question.innerHTML = q;
-  numOfHints = 0;
-  for (let i = 0; i < h.length; i++) {
-    numOfHints++;
-  }
   for (let i = 0; i < ch.length; i++) {
     choices[i].innerHTML = ch[i];
   }
@@ -418,7 +414,6 @@ function passToAotherQ(e) {
     } else {
       setQuestions(
         questions[catigoryIndex][questionsIndex].question,
-        questions[catigoryIndex][questionsIndex].hints,
         questions[catigoryIndex][questionsIndex].options
       );
     }
@@ -426,7 +421,6 @@ function passToAotherQ(e) {
   }, 1000);
 }
 // event
-// add hint
 
 menuBtn.addEventListener("click", () => {
   location.href = "./../main.html";
@@ -439,9 +433,7 @@ restartBtn.addEventListener("click", () => {
   reset(word);
 });
 
-//add questions
 setQuestions(
   questions[catigoryIndex][questionsIndex].question,
-  questions[catigoryIndex][questionsIndex].hints,
   questions[catigoryIndex][questionsIndex].options
 );
