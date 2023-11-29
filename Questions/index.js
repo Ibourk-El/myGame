@@ -351,30 +351,6 @@ let numOfHints = 0;
 let wrongAnswersArr = [];
 let score = 0;
 
-//puth questions to mian game
-function setQuestions(q, ch) {
-  let question = document.querySelector(".quetion");
-  let hints = document.querySelectorAll("li");
-  const choices = document.querySelectorAll(".choice");
-  question.innerHTML = q;
-  for (let i = 0; i < ch.length; i++) {
-    choices[i].innerHTML = ch[i];
-  }
-}
-// create list of wrong answers
-function createListOfWrong(q, a) {
-  let li = document.createElement("li");
-  li.innerHTML = `${q}   the answer is : <br> " <span> ${a}</span> "`;
-  return li;
-}
-
-// reset data
-function reset(e) {
-  e.innerHTML = "Drop The Correct Answer";
-  e.style.color = "#aaa";
-  e.style.backgroundColor = "#fff";
-}
-
 // drag and drop functions
 function dragStart(e) {
   e.dataTransfer.setData("txt", e.target.innerHTML);
@@ -389,6 +365,9 @@ function drop(e) {
   let ans = questions[catigoryIndex][questionsIndex].correctAnswer;
   e.target.innerHTML = e.dataTransfer.getData("txt");
   e.target.style.color = "#121";
+  // quetion logec
+  
+  soundPlay("dropAnswer")
   if (e.target.innerHTML === ans) {
     e.target.style.backgroundColor = "#0f9";
     e.target.style.color = "#fff";
@@ -400,9 +379,57 @@ function drop(e) {
       createListOfWrong(questions[catigoryIndex][questionsIndex].question, ans)
     );
   }
+  remaveQuetion ()
   passToAotherQ(e.target);
 }
+
+
+//puth questions to mian game
+function setQuestions(q, ch) {
+  let question = document.querySelector(".quetion");
+  const choices = document.querySelectorAll(".choice");
+  question.innerHTML = q;
+  for (let i = 0; i < ch.length; i++) {
+    choices[i].innerHTML = ch[i];
+  }
+}
+// create list of wrong answers
+function createListOfWrong(q, a) {
+  let li = document.createElement("li");
+  li.innerHTML = `${q}   the answer is : <br> " <span> ${a}</span> "`;
+  return li;
+}
+
+// remove quetion animation
+function remaveQuetion ()
+{
+  let question = document.querySelector(".quetion");
+  
+  setTimeout( () =>
+  {
+    soundPlay( "resare" )
+    question.classList.toggle( "active" )
+  } , 500)
+  setTimeout( () =>
+  {
+  soundPlay("write")
+    question.classList.toggle( "active" )
+  } , 1500)
+}
+
+// reset data
+function reset(e) {
+  e.innerHTML = "Drop The Correct Answer";
+  e.style.color = "#aaa";
+  e.style.backgroundColor = "#fff";
+}
 //
+
+// soundes effect
+function soundPlay (src)
+{
+  document.getElementById(src).play()
+}
 function passToAotherQ(e) {
   setTimeout(() => {
     questionsIndex++;
@@ -430,7 +457,11 @@ restartBtn.addEventListener("click", () => {
   resultBox.style.height = "0px";
   wrongAnswers.innerHTML = "";
   score = 0;
-  reset(word);
+  reset( word );
+  setQuestions(
+  questions[catigoryIndex][questionsIndex].question,
+  questions[catigoryIndex][questionsIndex].options
+);
 });
 
 setQuestions(
